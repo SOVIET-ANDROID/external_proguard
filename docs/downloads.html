@@ -12,13 +12,13 @@
 <script type="text/javascript" language="JavaScript">
 <!--
 if (window.self==window.top)
-  document.write('<a class="largebutton" target="_top" href="index.html#downloads.html">ProGuard index</a> <a class="largebutton" target="_top" href="http://www.saikoa.com/dexguard">DexGuard</a> <a class="largebutton" target="_top" href="http://www.saikoa.com/">Saikoa</a> <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>')
+  document.write('<a class="largebutton" target="_top" href="index.html#downloads.html">ProGuard index</a> <a class="largebutton" target="_top" href="http://www.guardsquare.com/dexguard">DexGuard</a> <a class="largebutton" target="_top" href="http://www.guardsquare.com/">GuardSquare</a> <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>')
 //-->
 </script>
 <noscript>
 <a class="largebutton" target="_top"  href="index.html#downloads.html">ProGuard index</a>
-<a class="largebutton" target="_top"  href="http://www.saikoa.com/dexguard">DexGuard</a>
-<a class="largebutton" target="_top"  href="http://www.saikoa.com/">Saikoa</a>
+<a class="largebutton" target="_top"  href="http://www.guardsquare.com/dexguard">DexGuard</a>
+<a class="largebutton" target="_top"  href="http://www.guardsquare.com/">GuardSquare</a>
 <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>
 </noscript>
 
@@ -29,7 +29,7 @@ License. Please consult the <a href="license.html">license page</a> for more
 details.
 <p>
 <b>ProGuard</b> is written in Java, so it requires a Java Runtime Environment
-   (JRE 1.5 or higher).
+   (JRE 1.6 or higher).
 <p>
 You can download the latest release (containing the program jars, the
 documentation that you're reading now, examples, and the source code) from this
@@ -73,6 +73,81 @@ target="other">proguard-gradle</a>,
 target="other">proguard-wtk-plugin</a>, and
 <a href="http://search.maven.org/#search|ga|1|a:%22proguard-retrace%22"
 target="other">proguard-retrace</a>.
+
+<h3><div>Feb 2018</div> Version 6.0</h3>
+<ul>
+<li>Added new option <code>-if</code>, to specify conditions for
+    <code>-keep</code> options.
+<li>Added new option <code>-addconfigurationdebugging</code>, to instrument the
+    code to get feedback about missing configuration at runtime.
+<li>Added new option <code>-android</code> to tune processing for Android.
+<li>Added support for references to matched wildcards in regular expressions
+    in <code>-keep</code> options.
+<li>Added new options <code>-assumenoexternalsideeffects</code>,
+    <code>-assumenoescapingparameters</code>, and
+    <code>-assumenoexternalreturnvalues</code>, too express fine-grained
+    assumptions for better code optimization.
+<li>Added backporting of Java 8 code.
+<li>Added backporting and support for Java 9 code.
+<li>Improved vertical class merging.
+<li>[PGD-654] Fixed processing of MethodParameters attributes with nameless
+    parameters.
+<li>[PGD-662] Fixed obfuscation causing clashing private and default method
+    names.
+<li>[PGD-684] Fixed obfuscation of extensions of functional interfaces that
+    are implemented with closures.
+<li>[PGD-681] Fixed potential IllegalArgumentException in simplification of
+    tail recursion.
+<li>[PGD-672] Fixed memory leak writing compressed zip entries.
+<li>[PGD-652] Fixed possible NullPointerException due to missing variable
+    initialization.
+<li>[PGD-641] Fixed possible NullPointerException due to optimized enum types.
+<li>[PGD-630] Fixed possible NullPointerException in optimization step.
+<li>[PGD-637] Fixed simplification of enum types in invokedynamic calls.
+<li>Fixed merging of classes sometimes resulting in final methods being
+    overridden.
+<li>Fixed simplification of enum types that are stored in arrays.
+<li>Fixed VerifyError triggered by merging classes with shrinking disabled.
+</ul>
+
+<h3><div>Sep 2016</div> Version 5.3</h3>
+<ul>
+<li>Avoiding obfuscated name clashes with library classes.
+<li>Fixed processing of generic signatures with inner classes.
+<li>Fixed processing of generic signatures with array types as bounds.
+<li>Fixed processing of wide branch instructions.
+<li>Fixed shrinking of nameless parameters attribute.
+<li>Fixed optimization of code with unreachable exception handlers.
+<li>Fixed optimization of enum types with custom fields.
+<li>Fixed optimization of enum types with custom static methods.
+<li>Fixed optimization of lambda method types.
+<li>Fixed optimization of parameter annotations.
+<li>Fixed optimization of swap/pop constructs.
+<li>Fixed adapting class access for referenced class members.
+<li>Fixed adapting invocations for referenced class members.
+<li>Preserving class member signature classes if
+    <code>includedescriptorclasses</code> is specified.
+<li>Allowing empty output jars if <code>-ignorewarnings</code> is specified.
+<li>Avoiding exceptions when inlining invalid line number instruction offsets.
+<lI>Fixed preverification of wildcard exceptions.
+<li>Fixed ReTrace for field names.
+<li>Fixed ReTrace for negative line numbers.
+<li>Improved ReTrace regular expression for Logback and Log4j.
+<li>Added Gradle build file.
+<li>Updated documentation and examples.
+</ul>
+
+<h3><div>Jan 2015</div> Version 5.2</h3>
+<ul>
+<li>Added encoding of optimized line numbers in ProGuard.
+<li>Added decoding of optimized stack frames in ReTrace.
+<li>Added overflow checks when writing out class files.
+<li>Fixed shrinking of default methods in subinterfaces.
+<li>Fixed optimization of closures with signatures containing merged classes.
+<li>Fixed conservative optimization of instructions that may throw exceptions.
+<li>Fixed internal processing of primitive array types.
+<li>Updated documentation and examples.
+</ul>
 
 <h3><div>Oct 2014</div> Version 5.1</h3>
 <ul>
@@ -746,8 +821,8 @@ Upgrade considerations:
 
 <hr />
 <address>
-Copyright &copy; 2002-2014
-<a target="other" href="http://www.lafortune.eu/">Eric Lafortune</a> @ <a target="top" href="http://www.saikoa.com/">Saikoa</a>.
+Copyright &copy; 2002-2018
+<a target="other" href="http://www.lafortune.eu/">Eric Lafortune</a> @ <a target="top" href="http://www.guardsquare.com/">GuardSquare</a>.
 </address>
 
 </body>

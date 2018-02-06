@@ -11,13 +11,13 @@
 <script type="text/javascript" language="JavaScript">
 <!--
 if (window.self==window.top)
-  document.write('<a class="largebutton" target="_top" href="../index.html#manual/introduction.html">ProGuard index</a> <a class="largebutton" target="_top" href="http://www.saikoa.com/dexguard">DexGuard</a> <a class="largebutton" target="_top" href="http://www.saikoa.com/">Saikoa</a> <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>')
+  document.write('<a class="largebutton" target="_top" href="../index.html#manual/introduction.html">ProGuard index</a> <a class="largebutton" target="_top" href="http://www.guardsquare.com/dexguard">DexGuard</a> <a class="largebutton" target="_top" href="http://www.guardsquare.com/">GuardSquare</a> <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>')
 //-->
 </script>
 <noscript>
 <a class="largebutton" target="_top"  href="../index.html#manual/introduction.html">ProGuard index</a>
-<a class="largebutton" target="_top"  href="http://www.saikoa.com/dexguard">DexGuard</a>
-<a class="largebutton" target="_top"  href="http://www.saikoa.com/">Saikoa</a>
+<a class="largebutton" target="_top"  href="http://www.guardsquare.com/dexguard">DexGuard</a>
+<a class="largebutton" target="_top"  href="http://www.guardsquare.com/">GuardSquare</a>
 <a class="largebutton" target="other" href="http://sourceforge.net/projects/proguard/">Sourceforge</a>
 </noscript>
 
@@ -159,6 +159,15 @@ might be an indication that the class or interface <code>SomeClass</code>
 and/or its implementations may need to be preserved. You can then adapt your
 configuration accordingly.
 <p>
+Finally, ProGuard can also help for to find less obvious cases of reflection
+<i>at run-time</i>. The option
+<a href="usage.html#addconfigurationdebugging"><code>-addconfigurationdebugging</code></a>
+lets ProGuard instrument the processed code with debugging statements. These
+print out suggestions for missing ProGuard configuration. They can be very
+useful to get practical hints, if your processed code crashes because it still
+lacks some configuration. You can generally just copy/paste the suggestions
+from the console into your configuration file.
+<p>
 For proper results, you should at least be somewhat familiar with the code
 that you are processing. Obfuscating code that performs a lot of reflection
 may require trial and error, especially without the necessary information
@@ -166,8 +175,8 @@ about the internals of the code.
 
 <hr />
 <address>
-Copyright &copy; 2002-2014
-<a target="other" href="http://www.lafortune.eu/">Eric Lafortune</a> @ <a target="top" href="http://www.saikoa.com/">Saikoa</a>.
+Copyright &copy; 2002-2018
+<a target="other" href="http://www.lafortune.eu/">Eric Lafortune</a> @ <a target="top" href="http://www.guardsquare.com/">GuardSquare</a>.
 </address>
 </body>
 </html>
